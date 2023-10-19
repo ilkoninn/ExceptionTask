@@ -22,25 +22,21 @@ namespace ConsoleApp7
                 string userName = Console.ReadLine().ToLower();
                 
                 bool checkUser = false;
-                for(int i = 0; i < humans.Length;i++)
+                Human user = null;
+                for (int i = 0; i < humans.Length; i++)
                 {
-                    if (humans[i].Name == userName)
+                    if (humans[i].Name.ToLower() == userName)
                     {
                         checkUser = true;
+                        user = humans[i];
                         break;
                     }
                 }
-                if(checkUser)
+                if (checkUser)
                 {
-                    foreach (var item in humans)
-                    {
-                        if (item.Name.ToLower() == userName)
-                        {
-                            Console.WriteLine("\n=== User Information ===\n" +
-                                $"Name: {item.Name}\nSurname: {item.Surname}\nAge: {item.Age}");
-                            break;
-                        }
-                    }
+                    Console.WriteLine("\n=== User Information ===\n" +
+                          $"Name: {user.Name}\nSurname: {user.Surname}\nAge: {user.Age}");
+
                 }
                 else
                 {
